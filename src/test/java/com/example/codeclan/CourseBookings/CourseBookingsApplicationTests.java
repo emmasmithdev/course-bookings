@@ -54,4 +54,16 @@ class CourseBookingsApplicationTests {
 		assertEquals(1, found.size());
 	}
 
+	@Test
+	public void getAllCustomersGivenTownGivenCourse(){
+		List<Customer> found = customerRepository.findByTownAndBookingsCourseId("Glasgow", 1L);
+		assertEquals(2, found.size());
+	}
+
+	@Test
+	public void getAllCustomersGivenTownGivenCourseOver30(){
+		List<Customer> found = customerRepository.findByTownAndBookingsCourseIdAndAgeGreaterThan("Glasgow", 1l, 30);
+		assertEquals(2, found.size());
+	}
+
 }
