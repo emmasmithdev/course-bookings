@@ -56,7 +56,7 @@ class CourseBookingsApplicationTests {
 
 	@Test
 	public void getAllCustomersGivenTownGivenCourse(){
-		List<Customer> found = customerRepository.findByTownAndBookingsCourseId("Glasgow", 1L);
+		List<Customer> found = customerRepository.findByTownIgnoreCaseAndBookingsCourseId("glasgow", 1L);
 		assertEquals(2, found.size());
 	}
 

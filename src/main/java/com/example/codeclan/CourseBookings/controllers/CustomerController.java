@@ -28,7 +28,7 @@ public class CustomerController {
     @GetMapping(value="/customers/town")
     public ResponseEntity<List<Customer>> getCustomersTownCourse(
             @RequestParam(name="town") String town, @RequestParam(name="course") Long id){
-        List<Customer> customers = customerRepository.findByTownAndBookingsCourseId(town, id);
+        List<Customer> customers = customerRepository.findByTownIgnoreCaseAndBookingsCourseId(town, id);
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
